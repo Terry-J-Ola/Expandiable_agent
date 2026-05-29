@@ -126,6 +126,7 @@ class Agent:
                 call.name,
                 self._format_json(call.arguments),
             )
+            # 通过name，得到真正的工具对象
             tool = self._tools.get(call.name)
             result = tool.run(call.arguments)
             # 工具结果会再次写回 memory，供下一轮模型继续消费。

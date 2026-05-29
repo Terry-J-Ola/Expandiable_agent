@@ -478,7 +478,7 @@ def _safe_load_json_bytes(raw: bytes) -> Optional[JsonDict]:
         return None
     return parsed if isinstance(parsed, dict) else None
 
-
+# 对MCP返回的结果进行包装成MCPToolResponse
 def _normalize_tool_result(result: JsonDict) -> MCPToolResponse:
     content_items = result.get("content", [])
     text_parts = [
